@@ -59,6 +59,8 @@ var update = function(index) {
       dataType: 'json',
       data: JSON.stringify(updatedPerson),
       success: function(data) {
+        $("#update").hide();
+        $("#submit_edit").off()
         read();
       },
       error: function(data) {
@@ -67,8 +69,6 @@ var update = function(index) {
     })
   })
 }
-
-
 var _delete = function(id) {
   $.ajax({
     url: firebase + id + "/.json",
@@ -83,6 +83,5 @@ var _delete = function(id) {
     }
   })
 }
-
 
 read();
